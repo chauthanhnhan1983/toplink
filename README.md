@@ -72,6 +72,6 @@ Limitation:
 - Not do execute yet when API's results have pagination.
 - Have Not test yet in the case of get data before Aug-12th. beacuse API alway return error in this case
 - Have not refactor code yet.
-- Some API has not yet. Because I have no time to research API Twitter.
+- Some API has not yet. Because I have no data from twitter( I already register twitter account) and ho time to research API Twitter.
 
 
