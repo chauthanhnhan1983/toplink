@@ -6,7 +6,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller as BaseController;
 use App\Models\User;
 use App\Models\Feed;
-use App\Models\Sharedlink;
+use App\Models\SharedLink;
 use App\Models\SharedDomain;
 use Carbon\Carbon;
 use Coderjerk\BirdElephant\BirdElephant;
@@ -44,7 +44,7 @@ class TwitterController extends BaseController
 
                Auth::login($finduser);
 
-               return redirect()->intended('dashboard');
+               return redirect()->intended('home');
 
            }else{
                $newUser = User::updateOrCreate(['email' => $user->email],[
@@ -56,7 +56,7 @@ class TwitterController extends BaseController
 
                Auth::login($newUser);
 
-               return redirect()->intended('dashboard');
+               return redirect()->intended('home');
            }
 
        } catch (Exception $e) {
@@ -205,12 +205,12 @@ class TwitterController extends BaseController
      //Note: call database too much. Need to improve coding
      foreach($tweetsLinks as $key=>$urls) {
        foreach($urls as $url) {
-          $link = Sharedlink::where('link_url',$url)->first();
+          $link = SharedLink::where('link_url',$url)->first();
           if($link != null) {
             $counting = $link->counting + 1;
-            Sharedlink::where('link_url',$url)->update(['counting'=>$counting]);
+            SharedLink::where('link_url',$url)->update(['counting'=>$counting]);
           } else {
-            Sharedlink::insert(['counting'=>1,'link_url'=>$url]);
+            SharedLink::insert(['counting'=>1,'link_url'=>$url]);
           }
           $urlExtract = parse_url($url);
           $domain = $urlExtract['host'];

@@ -23,5 +23,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::get('/auth/twitter', [App\Http\Controllers\Social\TwitterController::class, 'redirectToTwitter'])->name('auth.twitter');
-Route::get('/auth/twitter/callback', [App\Http\Controllers\Social\TwitterController::class, 'redirectToTwitter'])->name('auth.twitter_callback');
+Route::get('/auth/twitter/callback', [App\Http\Controllers\Social\TwitterController::class, 'handleTwitterCallback'])->name('auth.twitter_callback');
 Route::get('/twitter/calculating', [App\Http\Controllers\Social\TwitterController::class, 'calculating'])->name('twitter_calculating');

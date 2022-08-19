@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255)   NOT NULL,
-  `email` varchar(255)   NOT NULL,
+  `email` varchar(255)   NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255)   NOT NULL,
   `remember_token` varchar(100)   DEFAULT NULL,
