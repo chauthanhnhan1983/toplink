@@ -51,7 +51,7 @@ class TwitterController extends BaseController
                        'name' => $user->name,
                        'twitter_id'=> $user->id,
                        'password' => encrypt('123456dummy'),
-                 		'twitter_username' => $user->nickname,
+                        'twitter_username' => $user->nickname,
                    ]);
 
                Auth::login($newUser);
